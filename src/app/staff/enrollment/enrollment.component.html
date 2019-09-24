@@ -1,0 +1,502 @@
+<style>
+    /* Datepicker popup icon */
+    button.calendar {
+        border-color: #ced4da;
+    }
+
+    button.calendar,
+    button.calendar:active {
+        width: 2.75rem;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAcCAYAAAAEN20fAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEUSURBVEiJ7ZQxToVAEIY/YCHGxN6XGOIpnpaEsBSeQC9ArZbm9TZ6ADyBNzAhQGGl8Riv4BLAWAgmkpBYkH1b8FWT2WK/zJ8ZJ4qiI6XUI3ANnGKWBnht2/ZBDRK3hgVGNsCd7/ui+JkEIrKtqurLpEWaphd933+IyI3LEIdpCYCiKD6HcuOa/nwOa0ScJEnk0BJg0UTUWJRl6RxCYEzEmomsIlPU3IPW+grIAbquy+q6fluy/28RIBeRMwDXdXMgXLj/B2uimRXpui4D9sBeRLKl+1N+L+t6RwbWrZliTTTr1oxYtzVWiTQAcRxvTX+eJMnlUDaO1vpZRO5NS0x48sIwfPc87xg4B04MCzQi8hIEwe4bl1DnFMCN2zsAAAAASUVORK5CYII=') !important;
+        background-repeat: no-repeat;
+        background-size: 23px;
+        background-position: center;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <h3 class="page-heading">Student Enrollment</h3>
+
+    </div>
+    <div class="col-sm-8">
+        <h1 class="float-right">IIB</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+
+        <ngb-tabset id="mytab">
+            <ngb-tab title="Enrollment Form">
+                <ng-template ngbTabContent>
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h5 class="card-title">Enrollment Form</h5>
+                        </div>
+                        <div class="card-body">
+                            <ng-container *ngTemplateOutlet="personalInfo"></ng-container>
+                        </div>
+                    </div>
+
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab title="Review">
+                <ng-template ngbTabContent>
+                    <ng-container *ngTemplateOutlet="formReview"></ng-container>
+
+                </ng-template>
+            </ngb-tab>
+
+        </ngb-tabset>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- templates start here -->
+
+
+
+
+
+
+
+
+
+<ng-template #personalInfo>
+    <form>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="firstname">Fees paid</label>
+                <input type="text" class="form-control" id="firstname" placeholder="fees paid by the student">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="firstname">Remaining Fees</label>
+                <input type="text" class="form-control" id="firstname" value="10,000" readonly>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="firstname">Total</label>
+                <input type="text" class="form-control" id="firstname" value="15,000" readonly>
+            </div>
+        </div>
+
+
+        <div class="form-group horizontal-divider">
+
+        </div>
+
+
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="firstname">Name</label>
+                <input type="text" class="form-control" id="firstname" placeholder="student firstname">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="middlename">Father / Mother Name</label>
+                <input type="text" class="form-control" id="middlename" placeholder="father's or mother's name">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="lastname">Surname</label>
+                <input type="text" class="form-control" id="lastname" placeholder="student surname">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="exampleFormControlFile1">Passport Photo</label>
+
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                    <label class="custom-file-label" for="validatedCustomFile">choose photo...</label>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group horizontal-divider">
+
+        </div>
+
+        <div class="form-group">
+            <ng-container *ngTemplateOutlet="contactInfo"></ng-container>
+        </div>
+
+
+        <div class="form-group horizontal-divider">
+
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-sm-6">
+                <div style="border-right: 1px solid lightgray; padding-right: 8px;">
+                    <ng-container *ngTemplateOutlet="currentAddressInfo"></ng-container>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <ng-container *ngTemplateOutlet="permanentAddressInfo"></ng-container>
+            </div>
+        </div>
+
+        <div class="form-group horizontal-divider">
+
+        </div>
+
+        <button type="submit" class="btn btn-primary float-right">Preview Information</button>
+    </form>
+</ng-template>
+
+
+
+<ng-template #currentAddressInfo>
+    <div class="form-row">
+        <div class="form-group col-sm-12">
+            <label for="my-textarea">Current Address</label>
+            <textarea id="my-textarea" class="form-control" name="" rows="3"></textarea>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-sm-4">
+            <label for="city">City</label>
+            <select id="city" class="form-control" name="city">
+                <option>Nanded</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="city">State</label>
+            <select id="city" class="form-control" name="city">
+                <option>Maharashtra</option>
+            </select>
+        </div>
+
+
+        <div class="form-group col-sm-4">
+            <label for="zipcode">Zipcode</label>
+            <input class="form-control" type="text" name="zipcode" placeholder="zipcode" aria-label="zipcode"
+                aria-describedby="zipcode">
+
+        </div>
+    </div>
+</ng-template>
+
+
+
+<ng-template #permanentAddressInfo>
+    <div class="form-row">
+        <div class="form-group col-sm-12">
+            <label for="my-textarea">Permenant Address</label>
+            <label class="float-right" for="exampleCheck1" style="font-size: 14px;font-weight: 500;color: gray;"
+                *ngIf="false">
+                Same as current <i class="far fa-check-square"></i>
+            </label>
+
+            <div class="custom-control custom-checkbox d-inline float-right">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"
+                    style="font-size: 14px;font-weight: 500;color: gray;">same as current</label>
+            </div>
+
+            <textarea id="my-textarea" class="form-control" name="" rows="3"></textarea>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-sm-4">
+            <label for="city">City</label>
+            <select id="city" class="form-control" name="city">
+                <option>Nanded</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="city">State</label>
+            <select id="city" class="form-control" name="city">
+                <option>Maharashtra</option>
+            </select>
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="zipcode">Zipcode</label>
+            <input class="form-control" type="text" name="zipcode" placeholder="zipcode" aria-label="zipcode"
+                aria-describedby="zipcode">
+
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #contactInfo>
+
+    <div class="form-row">
+        <div class="form-group col-sm-4">
+            <label for="personalMobileNumber">Email Id</label>
+            <input id="personalMobileNumber" class="form-control" type="text" name="personalMobileNumber"
+                placeholder="email address" />
+            <small id="emailHelp" class="form-text text-muted">Email address will be the user id for IIB.</small>
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="personalMobileNumber">Blood Group</label>
+            <input id="personalMobileNumber" class="form-control" type="text" name="personalMobileNumber"
+                placeholder="student's blood group" />
+
+        </div>
+
+
+        <div class="form-group col-sm-4">
+            <label for="personalMobileNumber">Date of Birth</label>
+            <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-sm-4">
+            <label for="personalMobileNumber">Mobile Number</label>
+            <input id="personalMobileNumber" class="form-control" type="text" name="personalMobileNumber"
+                placeholder="personal mobile number" />
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="personalMobileNumber"> Parent's / Guardian's Mobile Number</label>
+            <input id="personalMobileNumber" class="form-control" type="text" name="personalMobileNumber"
+                placeholder="parent's or guardian's contact number" />
+        </div>
+
+        <div class="form-group col-sm-4">
+            <label for="personalMobileNumber">Emergency Contact Number</label>
+            <input id="personalMobileNumber" class="form-control" type="text" name="personalMobileNumber"
+                placeholder="emergency contact number" />
+        </div>
+    </div>
+</ng-template>
+
+
+
+<ng-template #formReview>
+    <div class="row mt-4">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    Personal Information
+                </div>
+                <div class="card-body">
+                    <table class="table student-static-info">
+                        <tbody>
+                            <tr>
+                                <th>Student passport size photo</th>
+                                <td><img src="assets/passport.jpg" /></td>
+                            </tr>
+                            <tr>
+                                <th>Student Fullname</th>
+                                <td>Harichandran Ramkrishan Pawar</td>
+                            </tr>
+
+                            <tr>
+                                <th>Email</th>
+                                <td>harry.pawar@iib.com</td>
+                            </tr>
+
+                            <tr>
+                                <th>Blood Group</th>
+                                <td>B Positive (B+)</td>
+                            </tr>
+
+                            <tr>
+                                <th>Date of Birth</th>
+                                <td>14<sup>th</sup> September, 1998</td>
+                            </tr>
+
+                            <tr>
+                                <th>Aadahar Number</th>
+                                <td>6765-8976-9876-8987</td>
+                            </tr>
+
+                            <tr>
+                                <th>PAN Number</th>
+                                <td>N / A</td>
+                            </tr>
+
+                            <tr>
+                                <th>Mobile Number</th>
+                                <td>+91 9096 174 175</td>
+                            </tr>
+
+                            <tr>
+                                <th>Parent's / Guardian's Mobile Number</th>
+                                <td>+91 8208 176 666</td>
+                            </tr>
+
+                            <tr>
+                                <th>Emergency Contact Number</th>
+                                <td>+91 8208 176 786</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="card">
+                <div class="card-header">
+                    IIB Institue Information
+
+                    <i class="fas fa-id-card float-right" style="font-size: 21px; color:midnightblue; cursor:pointer;"
+                        (click)="showIdCard()"></i>
+
+                    <button class="btn btn-link float-right" *ngIf="false" style="font-size: 14px; color:#00359D;"
+                        (click)="showIdCard()"> <i class="fas fa-id-card"></i> IIB Id Card</button>
+                </div>
+                <div class="card-body">
+                    <table class="table student-static-info">
+                        <tbody>
+
+                            <tr>
+                                <th>Enrollment Id</th>
+                                <td>
+                                    <b>E-87876567</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Enrollment Date</th>
+                                <td>
+                                    15<sup>th</sup> August, 2019
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Fees Paid</th>
+                                <td>
+                                    5,000 INR (FIVE THOUSAND ONLY)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Fees Remaining</th>
+                                <td>
+                                    10,000 INR (TEN THOUSAND ONLY)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Total Fees</th>
+                                <td>
+                                    15,000 INR (FIFTEEN THOUSAND ONLY)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Remaining Fees Due Date</th>
+                                <td>
+                                    15<sup>th</sup> November, 2019
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Id card status</th>
+                                <td>
+                                    <span class="text-warning">Ready to print</span>
+                                    <div class="d-inline fas fa-circle text-warning ml-3"></div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    Address
+                </div>
+                <div class="card-body">
+                    <table class="table student-static-info">
+                        <tbody>
+                            <tr>
+                                <th>Current Address</th>
+                                <td>
+                                    Amitabh Bachchan Residence House Address: Jalsa, B/2, Kapol Housing Society, VL
+                                    Mehta Road, Juhu, Mumbai – 400049, Maharashtra, India.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>Permenant Address</th>
+                                <td>
+                                    Amitabh Bachchan Residence House Address: Jalsa, B/2, Kapol Housing Society, VL
+                                    Mehta Road, Juhu, Mumbai – 400049, Maharashtra, India.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    Education Information
+                </div>
+                <div class="card-body">
+                    <table class="table student-static-info">
+                        <tbody>
+                            <tr>
+                                <th>SSC Board</th>
+                                <td>
+                                    84.40 % (Latur Board)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>HSC College</th>
+                                <td>
+                                    pratibha Niketan, Vazirabad Nanded.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row mt-4">
+
+        <div class="form-group horizontal-divider">
+
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-12 text-center">
+            <button class="btn btn-primary mr-3">Submit</button>
+            <button class="btn btn-link">Back to Update Info</button>
+        </div>
+    </div>
+</ng-template>

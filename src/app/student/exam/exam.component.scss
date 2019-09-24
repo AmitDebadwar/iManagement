@@ -1,0 +1,12 @@
+.options{
+    margin-top: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.options.selected{
+     border: 1px solid green;
+     border-radius: 4px;
+     background: #F0FFFF;
+      
+}

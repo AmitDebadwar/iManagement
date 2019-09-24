@@ -1,0 +1,15 @@
+USE [iManagement]
+
+
+insert into ToDo values
+	(
+	'Entity framework with layered Architecture',
+	'iManagement development',
+	'M',
+	0, 
+	CURRENT_USER,
+	CURRENT_USER,
+	GETDATE(),
+	GETDATE()
+	);
+	

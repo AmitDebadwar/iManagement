@@ -1,0 +1,138 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3 class="page-heading">To Dos</h3>
+    </div>
+</div>
+
+<div class="row justify-content-sm-center justify-content-xs-center">
+    <div class="col-sm-12">
+
+        <form #toDoForm="ngForm" novalidate name="toDoForm" class="i-form">
+            <div class="form-row">
+                <div class="col-md-8 col-sm-12">
+                    <input type="text" [(ngModel)]="todo.Task" #txtTask="ngModel" required class="form-control"
+                        placeholder="enter your task" id="txtTask" name="txtTask">
+                    <span class="text-danger" [hidden]="!(toDoForm.invalid && submitted && 
+                        txtTask.errors && txtTask.errors.required)">*Task is a required field.</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col col-sm-* col-md-4">
+                    <input type="text" [(ngModel)]="todo.Category" class="form-control"
+                        placeholder="category e.g. demo PPT or application feature ..." id="txtCategory"
+                        name="txtCategory" #txtCategory="ngModel" required>
+
+                    <span class="text-danger" [hidden]="!(toDoForm.invalid && submitted && 
+                        txtCategory.errors && txtCategory.errors.required)">*Category is a required field.</span>
+                </div>
+
+                <div class="col col-sm-* col-md-4">
+                    <input type="text" class="form-control" [(ngModel)]="todo.Priority"
+                        placeholder="task priority e.g. H | M | L | N ..." id="txtPriority" name="txtPriority">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-8 col-sm-12">
+                    <textarea type="text" [(ngModel)]="todo.Description" class="form-control" row="3"
+                        placeholder="description like reference links or text ..." id="txtId" name="txtName">
+                        </textarea>
+                </div>
+            </div>
+
+            <div class="form-row mt-3">
+                <div class="col-md-8 col-sm-12 text-center text-md-right">
+                    <button class="btn btn-primary" (click)="save(successMessage, toDoForm)">
+                        <i class="fa fa-spinner fa-spin" *ngIf="isToDoSaving"></i>
+                        <i class="fas fa-plus" *ngIf="!isToDoSaving"></i> Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="horizontal-divider mt-5"></div>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <form #toDoListForm="ngForm" name="toDoListForm" novalidate>
+            <table class="table w-auto" [ngClass]="{'i-table': !isXS, 'table-sm': isXS}">
+                <thead class="table-head">
+                    <tr>
+                        <th scopesame="col">#</th>
+                        <th scopesame="col">Task</th>
+                        <th scopesame="col">Category</th>
+                        <th scopesame="col">Priority</th>
+                        <th scopesame="col">Description</th>
+                        <th scopesame="col">Status</th>
+                        <th scopesame="col">Created By</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="!isTodosLoading && (todos?.length !==0)" class="table-body">
+                    <tr *ngFor="let todo of todos; let i = index;">
+                        <td>{{ i + 1}}</td>
+                        <td class="left">{{ todo.Task }}</td>
+                        <td>{{ todo.Category}}</td>
+                        <td>{{ todo.Priority }}</td>
+                        <td class="text-left">{{ todo.Description }}</td>
+                        <td>
+
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1-{{i}}"
+                                 
+                                name="customCheck1-{{i}}"
+                                    [(ngModel)]="todo.TaskStatus" (change)="updateStatus(todo, i)">
+                                <label class="custom-control-label" for="customCheck1-{{i}}">
+
+                                </label>
+
+                                <i class="fa fa-spinner fa-spin"
+                                    *ngIf="isToDoUpdating && updatorIndex === i"></i>
+                            </div>
+
+
+                        </td>
+                        <td class="text-capitalize">{{ todo.CreatedBy }}</td>
+                    </tr>
+                </tbody>
+
+                <tbody class="loader" *ngIf="isTodosLoading">
+                    <tr>
+                        <td colspan="4">
+                            <i-section-loader name="to-do-loader" [isChildPage]="true"></i-section-loader>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tbody class="no-records" *ngIf="(todos?.length === 0) && !isTodosLoading">
+                    <tr>
+                        <td colspan="4">
+                            There are no records to display.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+<ng-template #successMessage let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Success</h4>
+    </div>
+    <div class="modal-body">
+        Task has been saved successfully !
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('success')">Ok</button>
+    </div>
+</ng-template>

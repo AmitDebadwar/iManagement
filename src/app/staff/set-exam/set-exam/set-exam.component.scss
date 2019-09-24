@@ -1,0 +1,32 @@
+.question-table{
+    
+    tbody{
+        height: 265px;
+    }
+    thead{
+     
+        
+    }
+    tbody tr td, thead tr th{
+        &.index{
+            width: 5%;
+        }
+
+        &.action{
+            width: 5%;
+        }
+
+        &.question{
+            width: 80%;
+        }
+
+        &.level{
+            width: 10%;
+            text-align: center
+        }
+    }
+}
+
+.set-exam-buttons{
+    width: 100px;
+}

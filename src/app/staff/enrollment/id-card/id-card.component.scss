@@ -1,0 +1,39 @@
+.id-card {
+    width: 650px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid black;
+    padding: 0px;
+}
+
+.header {
+    background: #2F4F4F;
+    color: #fff;
+}
+
+.h-class-name {}
+
+.h-class-address {
+    font-size: 11px;
+}
+
+.h-class-contact {
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.photo {
+    padding-right: 5px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.footer i{
+    background: #708175;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.footer span{
+    font-weight: bold;
+    float:right;
+}

@@ -1,0 +1,207 @@
+
+
+
+<div class="row mt-5">
+    <div class="col-sm-4">
+        <h3 class="page-heading">Admin Dashboard</h3>
+
+    </div>
+    <div class="col-sm-8">
+        <h1 class="float-right">IIB</h1>
+    </div>
+</div>
+
+
+<div class="row mt-4">
+    <div class="col-sm-2">
+        <div class="card i-card green">
+            <div class="card-body">
+
+                <i class="fas fa-users"></i>
+                <div>Students</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="card i-card six">
+            <div class="card-body">
+
+                <i class="fas fa-graduation-cap"></i>
+                <div>Exams</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="card i-card orange">
+            <div class="card-body">
+
+                <i class="fas fa-rupee-sign"></i>
+                <div>Payments</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="card i-card purple">
+            <div class="card-body">
+
+                <i class="fas fa-book-open"></i>
+                <div>Library</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="card i-card blue">
+            <div class="card-body">
+
+                <i class="fas fa-hotel"></i>
+                <div>Dormitory</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="card i-card one">
+            <div class="card-body">
+
+                <i class="fas fa-envelope"></i>
+                <div>Messages</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row mt-2">
+    <div class="col-sm-2">
+        <div class="card i-card two">
+            <div class="card-body">
+                <i class="fas fa-stopwatch"></i>
+                <div>Fee Reminder</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="card i-card three">
+            <div class="card-body">
+                <i class="fas fa-chalkboard"></i>
+                <div>Notice Board</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="card i-card four">
+            <div class="card-body">
+                <i class="fas fa-bell"></i>
+                <div>Notifications</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-2">
+        <div class="card i-card five">
+            <div class="card-body">
+                <span class="badge badge-light">4 new</span><i class="fas fa-question-circle" *ngIf="false"></i>
+                <div>Query Board</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card i-card burlyWood">
+            <div class="card-body">
+                <i class="fas fa-plus"></i>
+                <i class="fas fa-user-tie"></i>
+                <div class="d-block">Student Enrollment</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-4">
+        <div class="card i-card five">
+            <div class="card-body">
+                <i class="fas fa-id-card"></i>
+                <div class="d-block">Id card manager</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <hr />
+        <!-- <div class="horizontal-divider"></div> -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="alert alert-warning" role="alert">
+            Statistics strongly shows, students needs to brush up <b>Biology </b>chapter <b>6 Human Reproduction
+                System.
+
+                Click <a href="#">here</a> to notify students for revision on this chapter on 31<sup>st</sup>
+                December. <button class="btn btn-link float-right" (click)="showStatistics(stats)">Show
+                    statistics</button>
+            </b>
+        </div>
+
+    </div>
+</div>
+
+<div class="row" #stats>
+    <div class="col-sm-12">
+        <div class="card">
+             
+
+                     
+            
+            
+            
+            <div class="card-body">
+                <h5 class="card-title d-inline-block" style="vertical-align: sub;">Student's marks statistics for year (Jan-July) 2019-2020</h5>
+                
+
+                <div class="float-right d-inline-block">
+                        <select id="chartDisplay" class="custom-select" name="chartDisplay" (change)="onStatSelChange()">
+                                <option>Jan 2019</option>
+                                <option>Feb 2019</option>
+                            </select>
+                            <span class="custom-select-my"></span>
+                    
+                </div>
+
+                <div class="form-group horizontal-divider mt-4 mb-4">
+
+                </div>
+
+
+                <div class="row mt-5" *ngIf="isLoadingStats" style="height:356px;">
+                    <div class="col-sm-12">
+                        <i-section-loader name="analytica-loader" [isChildPage]="true"></i-section-loader>
+                    </div>
+                </div>
+
+                <canvas *ngIf="!isLoadingStats" baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                    [options]="barChartOptions" height="100" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                </canvas>
+
+            </div>
+        </div>
+    </div>
+</div>

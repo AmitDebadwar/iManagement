@@ -1,0 +1,76 @@
+<div class="row mt-2">
+  <div class="col-sm-4">
+    <h3 class="page-heading">Set Exam Paper</h3>
+
+  </div>
+  <div class="col-sm-8">
+    <h1 class="float-right">IIB</h1>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-9">
+    <form name="frmChapters">
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-1 col-form-label">Chapters</label>
+        <div class="col-sm-6">
+          <select name="selChapters2342" class="form-control" [(ngModel)]="selectedChapter"
+            (change)="onChapterChange()">
+            <option [value]="undefined">-- select chapter --</option>
+            <option *ngFor="let chapterd of chapters" [ngValue]="chapterd">{{ chapterd?.number }} {{chapterd?.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-3">
+    <button class="btn btn-link float-right" (click)="showTestDetailsPopup()">View Test Details</button>
+  </div>
+</div>
+<div class="row mt-4" *ngIf="false">
+  <div class="col-sm-12">
+    <h3>
+      {{selectedChapter?.number}} {{ selectedChapter?.number ? ")": ""}} {{selectedChapter?.name}}
+    </h3>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header" *ngIf="selectedChapter?.number">
+        {{selectedChapter?.number}} {{ selectedChapter?.number ? ")": ""}} {{selectedChapter?.name}}
+      </div>
+      <div class="card-body">
+
+        <table class="table table-striped i-table question-table">
+          <thead>
+            <tr>
+              <th scope="col" class="index">#</th>
+              <th scope="col" class="action"><input type="checkbox"></th>
+              <th scope="col" class="question">Question</th>
+              <th scope="col" class="level pr-5">Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let q of questions; let i = index;">
+              <td class="index">{{i + 1}}</td>
+              <td class="action"><input type="checkbox"></td>
+              <td class="question">{{q.question}}</td>
+              <td class="level">{{q.level}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <button class="btn btn-primary set-exam-buttons"> <i class="fas fa-plus"></i> Add</button>
+    <button class="btn btn-secondary set-exam-buttons ml-3">Cancel</button>
+  </div>
+</div>

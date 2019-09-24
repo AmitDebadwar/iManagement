@@ -1,0 +1,16 @@
+.student-static-info{
+    tbody tr:first-child{
+        th, td{
+            border-top:0px;
+        }
+    }
+
+    tbody tr th{
+        color: gray;
+        font-weight: 500;
+    }
+}
+
+.custom-file-input ~ .custom-file-label::after {
+    content: "...";
+}

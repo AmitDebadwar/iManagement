@@ -1,0 +1,255 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/animate.css/animate.css";
+
+$dark-blue: #00395d;
+
+/* Responsive text */
+html {
+  font-size: 16px;
+
+  body {
+  }
+}
+
+@include media-breakpoint-up(xs) {
+  html {
+    body {
+      .first-row {
+        margin-top: 0px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* My mobile landscepe view */
+@include media-breakpoint-up(sm) {
+  html {
+    body {
+      .first-row {
+        margin-top: 7px;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    body {
+      .first-row {
+        margin-top: 100px;
+      }
+    }
+  }
+}
+
+/* This is for laptop and desktop */
+@include media-breakpoint-up(lg) {
+  html body {
+    .first-row {
+      margin-top: 6px;
+    }
+  }
+}
+
+/* End Responsive text */
+
+table.i-table {
+  border: 1px solid #e8e8e8;
+
+  tbody tr:nth-of-type(odd) {
+    background: #f7f7f7;
+  }
+
+  tbody tr:nth-of-type(even) {
+    background: #ffffff;
+  }
+
+  tbody {
+    display: block;
+    overflow: auto;
+    tr {
+      td {
+        text-align: center;
+      }
+    }
+  }
+  thead,
+  tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  thead {
+    width: 100%;
+    tr:first-child {
+      th {
+        border-bottom: 2px solid $dark-blue;
+        border-top: 0px;
+      }
+    }
+
+    th {
+      color: $dark-blue;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+}
+/* Global table */
+table.table {
+  tbody.loader {
+    tr td {
+      height: 300px;
+      width: 300px;
+    }
+
+    
+  }
+
+  thead tr th.left,
+  tbody tr td.left{
+    text-align: left;
+  }
+
+  tbody.no-records {
+    tr td {
+      text-align: center;
+      vertical-align: middle;
+      height: 100px;
+      width: 300px;
+      border-bottom: 2px solid #00395d;
+      background: #fff;
+    }
+  }
+}
+
+/* End global table */
+h6.page-heading {
+  color: $dark-blue;
+}
+
+.i-card {
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0px;
+  .card-body {
+    color: #fff;
+
+    div {
+      font-weight: 400;
+      display: inline-block;
+      margin-left: 7px;
+      font-weight: 400;
+    }
+  }
+
+  &.burlyWood {
+    background: #d2691e;
+  }
+  &.green {
+    background: green;
+  }
+
+  &.orange {
+    background: #008b8b;
+  }
+
+  &.purple {
+    background: #483d8b;
+  }
+
+  &.blue {
+    background: #2f4f4f;
+  }
+
+  &.one {
+    background: #1e90ff;
+  }
+
+  &.two {
+    background: #cd5c5c;
+  }
+
+  &.three {
+    background: #daa520;
+  }
+
+  &.four {
+    background: #191970;
+  }
+
+  &.five {
+    background: #808000;
+  }
+
+  &.six {
+    background: #f4a460;
+  }
+}
+
+.horizontal-divider {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+hr {
+}
+
+.id-card-modal {
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 690px;
+  }
+}
+
+#mytab ul li a {
+  font-weight: 600;
+  color: #00788b;
+}
+
+.btn.btn-link {
+  font-weight: 600;
+  color: #00788b;
+  padding: 0px;
+}
+
+.custom-select {
+  width: unset;
+  padding-right: 38px;
+  cursor: pointer;
+}
+
+.custom-select-my {
+  border: 0px;
+  border-left: 1px solid lightgray;
+  border-radius: 0px;
+  height: 21px;
+  position: relative;
+  right: 31px;
+  top: 3px;
+}
+
+/* Button classes */
+.btn {
+  border-radius: 0px;
+}
+/* End Button classes */
+
+/*   Form classes */
+
+form.i-form{
+  .form-row:not(:first-child){
+    margin-top: 7px;
+  }
+}
+
+/* End form classes */
+
+
